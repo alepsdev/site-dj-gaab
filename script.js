@@ -1,11 +1,16 @@
-$('a[href*="#"]').on('click', function(e) {
-  e.preventDefault();
+const imgs = document.getElementById("img");
+const img = document.querySelectorAll("#img img");
 
-  $('html, body').animate(
-     {
-        scrollTop: $($(this).attr('href')).offset().top,
-     },
-     500,
-     'linear'
-  );
-});
+let idx = 0;
+
+function carrocel() {
+   idx ++;
+
+   if(idx > img.length - 1){
+      idx = 0;
+   }
+
+   imgs.style.transform = `translateX(${-idx * 500}px)`;
+}
+
+setInterval(carrocel, 1800);
